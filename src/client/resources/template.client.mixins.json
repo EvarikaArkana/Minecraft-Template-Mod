@@ -3,7 +3,7 @@
   "package": "eva.template.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "ExampleTemplateMixin"
+    "ExampleClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
