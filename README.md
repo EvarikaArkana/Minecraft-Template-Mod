@@ -1,2 +1,1 @@
-Allows the offhand to 'use' items even when the main hand normally _should_ be able to but can't, such as when attempting to place a torch in an entity-occupied space from your offhand while holding a colliding block in your main hand.
-Really, while this isn't the only use case, it IS the only _type_ of use case. All I'm doing here is getting rid of an intentional cancellation of a for loop that prevents the offhand from being checked here if right clicking a block with something that doesn't place based on collision checks.
+Evarika's Template Mod
