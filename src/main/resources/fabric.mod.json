@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "Evarika"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/template",
+    "sources": "https://github.com/EvarikaArkana/template"
+  },
+  "license": "${mod_license}",
+  "icon": "assets/template/icon.png",
+  "environment": "client",
+
+  "entrypoints": {
+    "main": [
+      "eva.template.TemplateMain"
+    ],
+    "client": [
+      "eva.template.TemplateClient"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "template.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": ">=${minecraft_version_0} <=${minecraft_version_1}",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "simply-dual-wielding": "*"
+  },
+  "breaks": {
+    "betterthirdperson": "*"
+  },
+  "custom": {
+    "mc-publish": {
+      "modrinth": "Q3aGKBEg",
+      "curseforge": 1266340,
+      "dependencies": [
+        "simply-dual-wielding(recommended){modrinth:simply-dual-wielding}",
+        "sdw(recommended){curseforge:simply-dual-wielding}",
+        "better-third-person(incompatible){modrinth:better-third-person}",
+        "betterthirdperson(incompatible){curseforge:better-third-person}"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "eva.template.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ExampleTemplateMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
