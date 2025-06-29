@@ -1,4 +1,4 @@
-package eva.template.mixin.client;
+package eva.template.mixin;
 
 
 import com.mojang.authlib.minecraft.client.MinecraftClient;
