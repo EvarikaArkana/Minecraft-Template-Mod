@@ -53,5 +53,6 @@
         "betterthirdperson(incompatible){curseforge:better-third-person}"
       ]
     }
-  }
+  },
+  "accessWidener": "template.accesswidener"
 }
