@@ -11,7 +11,7 @@ import java.nio.file.Path;
 
 public class JsonConfigHelper {
     private static final File folder = new File("config");
-    private static File simplydualwieldingConfig;
+    private static File templateConfig;
     public static Gson configGson = new GsonBuilder().setPrettyPrinting().create();
 
     public static void init() {
@@ -25,26 +25,26 @@ public class JsonConfigHelper {
             folder.mkdir();
         }
         if (folder.isDirectory()) {
-            simplydualwieldingConfig = new File(folder, "simplydualwielding.json");
+            templateConfig = new File(folder, "template.json");
             boolean seemsValid;
-            if (simplydualwieldingConfig.exists()) {
+            if (templateConfig.exists()) {
                 try {
-                    String simplydualwieldingConfigJson = Files.readString(Path.of(simplydualwieldingConfig.getPath()));
-                    seemsValid = simplydualwieldingConfigJson.trim().startsWith("{");
+                    String templateConfigJson = Files.readString(Path.of(templateConfig.getPath()));
+                    seemsValid = templateConfigJson.trim().startsWith("{");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             } else {
                 seemsValid = true;
             }
-            if (!simplydualwieldingConfig.exists() || !seemsValid) {
+            if (!templateConfig.exists() || !seemsValid) {
                 if (!seemsValid) {
                     TemplateClient.LOGGER.info("Found invalid config file, creating new config file at './config/moreshieldvariants.json'.");
                 }
                 try {
-                    simplydualwieldingConfig.createNewFile();
+                    templateConfig.createNewFile();
                     String json = configGson.toJson(TemplateConfig.getInstance());
-                    FileWriter writer = new FileWriter(simplydualwieldingConfig);
+                    FileWriter writer = new FileWriter(templateConfig);
                     writer.write(json);
                     writer.close();
                 } catch (IOException e) {
@@ -57,7 +57,7 @@ public class JsonConfigHelper {
 
     public static void readFromConfig() {
         try {
-            TemplateConfig config = configGson.fromJson(new FileReader(simplydualwieldingConfig), TemplateConfig.class);
+            TemplateConfig config = configGson.fromJson(new FileReader(templateConfig), TemplateConfig.class);
             TemplateConfig.getInstance().updateConfigs(config);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -68,7 +68,7 @@ public class JsonConfigHelper {
     public static void writeToConfig() {
         try {
             String json = configGson.toJson(TemplateConfig.getInstance());
-            FileWriter writer = new FileWriter(simplydualwieldingConfig, false);
+            FileWriter writer = new FileWriter(templateConfig, false);
             writer.write(json);
             writer.close();
         } catch (IOException e) {
