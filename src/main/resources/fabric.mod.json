@@ -22,6 +22,9 @@
     ],
     "client": [
       "eva.template.TemplateClient"
+    ],
+    "modmenu": [
+      "eva.template.config.TemplateConfigScreen"
     ]
   },
   "mixins": [
@@ -43,6 +46,11 @@
     "betterthirdperson": "*"
   },
   "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.issues": "https://github.com/EvarikaArkana/Minecraft-Template-Mod/issues"
+      }
+    },
     "mc-publish": {
       "modrinth": "Q3aGKBEg",
       "curseforge": 1266340,
