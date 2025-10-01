@@ -14,7 +14,7 @@
   },
   "license": "${mod_license}",
   "icon": "assets/template/icon.png",
-  "environment": "client",
+  "environment": "*",
 
   "entrypoints": {
     "main": [
@@ -29,7 +29,10 @@
   },
   "mixins": [
     {
-      "config": "template.mixins.json",
+      "config": "template.mixins.json"
+    },
+    {
+      "config": "template.client.mixins.json",
       "environment": "client"
     }
   ],
@@ -40,10 +43,8 @@
     "fabric-api": "*"
   },
   "suggests": {
-    "simply-dual-wielding": "*"
   },
   "breaks": {
-    "betterthirdperson": "*"
   },
   "custom": {
     "modmenu": {
@@ -52,13 +53,10 @@
       }
     },
     "mc-publish": {
-      "modrinth": "Q3aGKBEg",
-      "curseforge": 1266340,
+      "modrinth": "",
+      "curseforge": 0,
       "dependencies": [
-        "simply-dual-wielding(recommended){modrinth:simply-dual-wielding}",
-        "sdw(recommended){curseforge:simply-dual-wielding}",
-        "better-third-person(incompatible){modrinth:better-third-person}",
-        "betterthirdperson(incompatible){curseforge:better-third-person}"
+        "template(recommended){modrinth:template}"
       ]
     }
   },

@@ -13,7 +13,7 @@ jobs:
         with:
           distribution: 'adopt-hotspot'
           java-version: 21
-#          cache: 'gradle'
+      #          cache: 'gradle'
 
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
@@ -25,7 +25,7 @@ jobs:
         uses: christian-draeger/read-properties@1.1.1
         with:
           path: './gradle.properties'
-          properties: 'archives_base_name mod_version minecraft_version minecraft_version_name'
+          properties: 'archives_base_name mod_version minecraft_version minecraft_version_upper minecraft_version_name'
 
       - uses: Kir-Antipov/mc-publish@v3.3
         with:
@@ -42,8 +42,10 @@ jobs:
 
           version-type: release
 
-
           changelog-file: CHANGELOG.md
+
+          game-versions: |
+            >=${{ steps.properties.outputs.minecraft_version }} < ${{ steps.properties.outputs.minecraft_version_upper }}
 
           retry-attempts: 2
           retry-delay: 10000
